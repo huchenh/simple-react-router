@@ -1,6 +1,6 @@
 import React from 'react';
 import RouteContext from './context';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 export default class HashRoute extends React.Component {
 

@@ -11,8 +11,11 @@ export default class Route extends React.Component {
     let paramNames = []
     let regexp =  pathToRegexp(path, paramNames, {end: exact});
     let result = location.pathname.match(regexp);
+    let props = {
+      history: this.context.history
+    }
     if(result) {
-      return <Component />
+      return <Component {...props} />
     }
     return null;
   }
