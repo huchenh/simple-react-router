@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import { HashRouter, Route } from 'react-router-dom';
-import { HashRouter, Route, Link, Switch, Redirect } from './react-router-dom';
+import { HashRouter, Route, Link, Switch, Redirect, MenuLink } from './react-router-dom';
 import Home from './components/Home';
 import User from './components/User';
 import Profile from './components/Profile';
@@ -15,9 +15,9 @@ ReactDOM.render(
             <Link className="navbar-brand" to="/"> Home</Link>
           </div>
           <ul className="nav navbar-nav">
-            <li><Link to='/'>首页</Link></li>
-            <li><Link to='/user'>用户</Link></li>
-            <li><Link to='/profile'>个人中心</Link></li>
+            <li><MenuLink exact={true} to='/'>首页</MenuLink></li>
+            <li><MenuLink to='/user'>用户</MenuLink></li>
+            <li><MenuLink to='/profile'>个人中心</MenuLink></li>
           </ul>
         </div>
       </nav>

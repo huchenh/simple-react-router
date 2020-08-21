@@ -11,7 +11,7 @@ export default class Link extends React.Component {
 
   render() {
     return (
-      <a onClick={this.handleClick} href={`${this.context.mode ==='hash' ? '#':''}${this.props.to}`} >{ this.props.children }</a>
+      <a onClick={this.handleClick} href={`${this.context.mode ==='hash' ? '#':''}${this.props.to}`} {...this.props} >{ this.props.children }</a>
     )
   }
 }

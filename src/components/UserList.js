@@ -18,7 +18,7 @@ export default class UserAdd extends React.Component {
       {
         this.state.users.map((user)=>{
           return <li key={user.id} className="list-group-item">
-              <Link to={`/user/detail/${user.id}`}> {user.username}</Link>
+              <Link to={{pathname: `/user/detail/${user.id}`,state: {user}}}> {user.username}</Link>
           </li>
         })
       }

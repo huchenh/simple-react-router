@@ -6,7 +6,8 @@ export default class HashRoute extends React.Component {
 
   state = {
     location: {
-      pathname: window.location.hash.slice(1)
+      pathname: window.location.hash.slice(1),
+      state:{}
     }
   }
 
@@ -14,7 +15,8 @@ export default class HashRoute extends React.Component {
     this.setState({
       location:{
         ...this.state.location,
-        pathname: window.location.hash.slice(1)
+        pathname: window.location.hash.slice(1),
+        state: this.locationState
       }
     })
   }
@@ -30,12 +32,26 @@ export default class HashRoute extends React.Component {
 
   render() {
     const { location } = this.state;
+    const that = this;
     let value = {
       location,
       mode: 'hash',
       history: {
         push(to) {
-          window.location.hash = to;
+          if(that.block) {
+           const allow = window.confirm(that.block(that.state.location));
+           if(!allow) return;
+          }
+          if(typeof to === 'object') {
+            const { pathname, state } = to
+            window.location.hash = pathname
+            that.locationState = state;
+          }else{
+            window.location.hash = to;
+          }
+        },
+        block(message) {
+          that.block = message;
         }
       }
     }

@@ -10,6 +10,8 @@ export default class Redirect extends React.Component {
     }
   }
 
+  
+
   render() {
     return null;
   }
