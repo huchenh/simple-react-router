@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import { HashRouter, Route } from 'react-router-dom';
-import { HashRouter, Route, Link, Switch, Redirect, MenuLink } from './react-router-dom';
+import { BrowerRouter as Router, Route, Link, Switch, Redirect, MenuLink } from './react-router-dom';
 import Home from './components/Home';
 import User from './components/User';
 import Profile from './components/Profile';
+import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
-  <HashRouter>
+  <Router>
     <>
       <nav className="navbar navbar-inverse">
         <div className="fluid-container" >
@@ -35,6 +36,6 @@ ReactDOM.render(
       </div>
     </>
     
-  </HashRouter>,
+  </Router>,
   document.getElementById('root')
 );

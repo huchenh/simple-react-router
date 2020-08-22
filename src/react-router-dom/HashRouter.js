@@ -1,6 +1,5 @@
 import React from 'react';
 import RouteContext from './context';
-import 'bootstrap/dist/css/bootstrap.css';
 
 export default class HashRoute extends React.Component {
 
@@ -27,7 +26,7 @@ export default class HashRoute extends React.Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener(this.listener)
+    window.removeEventListener('hashchange',this.listener)
   }
 
   render() {
